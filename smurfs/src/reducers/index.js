@@ -21,9 +21,7 @@ function smurfReducer(state = initialSmurfList, action) {
             console.log(action.payload, "success fires")
             return {
                 ...state,
-                smurfs : [
-                    action.payload,
-                ],
+                smurfs : action.payload,                
                 error: ''
             }
         case GET_SMURF_LIST_FAIL:

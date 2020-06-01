@@ -15,6 +15,7 @@ const SmurfList = props => {
         <div className="container" >
         {
             props.smurfs.map(smurf => {
+                console.log(smurf,' is a smurf')
                 return <Smurf smurf={smurf} key={smurf.id}/>
             })
         }

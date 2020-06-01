@@ -4,9 +4,9 @@ import { postNewSmurf } from '../actions'
 
 const SmurfForm = props=> {
     // form field state
-    const [newSmurfName, setNewSmurfName] = useState()
-    const [newSmurfAge, setNewSmurfAge] = useState()
-    const [newSmurfHeight, setNewSmurfHeight] = useState()
+    const [newSmurfName, setNewSmurfName] = useState("Name")
+    const [newSmurfAge, setNewSmurfAge] = useState("Age")
+    const [newSmurfHeight, setNewSmurfHeight] = useState("Height")
     
     // maybe write a handler for this in reducer and pass it in via props?
     const handleNameChange = e => {
@@ -24,9 +24,9 @@ const SmurfForm = props=> {
             e.preventDefault();
             // dispatch an ADD function here
             props.postNewSmurf(newSmurfName, newSmurfAge, newSmurfHeight)
-            setNewSmurfName("")
-            setNewSmurfAge("")
-            setNewSmurfHeight("")
+            setNewSmurfName("Name")
+            setNewSmurfAge("Age")
+            setNewSmurfHeight("Height")
         }}>
             <input
                 onChange={handleNameChange}
