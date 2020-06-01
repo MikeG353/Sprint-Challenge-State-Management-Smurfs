@@ -1,16 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { getSmurfList } from '../actions'
 import Smurf from './Smurf'
 
 const SmurfList = props => {
     console.log(props)
     return (
-        <button onClick={props.getSmurfList()}>Get Smurf Data</button>
-        // <>
-        //     {props.smurfs.map(smurf => (
-        //         <Smurf name={smurf.name} />
-        //     ))}
-        // </>
+        <>
+        <button onClick={e => {
+            e.preventDefault()
+            props.getSmurfList()
+        }}>Get Smurf Data</button>
+        <p>{props.error.message}</p>
+        <div className="container" >
+        {
+            props.smurfs.map(smurf => {
+                return <Smurf smurf={smurf} key={smurf.id}/>
+            })
+        }
+        </div>
+        </>
     )
 }
-
-export default SmurfList
+const mapStateToProps = state => {
+    console.log('from smurf list', state)
+    return {
+        ...state
+    }
+}
+export default connect(mapStateToProps, { getSmurfList })(SmurfList)

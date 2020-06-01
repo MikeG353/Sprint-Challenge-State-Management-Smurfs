@@ -1,21 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import smurfReducer from '../reducers';
 
 const Smurf = props => {
     console.log(props, 'from Smurf')
     
     return (
         <>
-            <h2>{props.smurf.name}</h2>
+            <h2>{props.smurf[0].name}</h2>
         </>
     )
 }
 
-const mapStateToProps = state => {
-    console.log(state)
-    return {
-        smurf: state.smurf
-    }
-}
 
-export default connect(mapStateToProps, {})(Smurf);
+export default Smurf;

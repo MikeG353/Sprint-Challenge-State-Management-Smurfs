@@ -12,7 +12,7 @@ const initialSmurfList = {
 function smurfReducer(state = initialSmurfList, action) {
     switch (action.type) {
         case GET_SMURF_LIST_START:
-            console.log('start fires')
+            console.log('start fires from reducer')
             return{
                 ...state,
                 error:''
@@ -22,7 +22,6 @@ function smurfReducer(state = initialSmurfList, action) {
             return {
                 ...state,
                 smurfs : [
-                    ...state.smurfs,
                     action.payload,
                 ],
                 error: ''
